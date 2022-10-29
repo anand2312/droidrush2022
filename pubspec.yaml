@@ -1,5 +1,5 @@
-name: edwards_pet
-description: A new Flutter project.
+name: edwards_pet # Project name subject to change
+description: Droidrush project (Avishkar 2022) by team HAVELII1I2
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -36,6 +36,11 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  firebase_core: ^2.1.1
+  firebase_auth: ^4.1.0
+  cloud_firestore: ^4.0.3
+  firebase_storage: ^11.0.3
+  firebase_crashlytics: ^3.0.3
 
 dev_dependencies:
   flutter_test:

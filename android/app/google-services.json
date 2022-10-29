@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1048375441547",
+    "project_id": "petrush-f03e1",
+    "storage_bucket": "petrush-f03e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048375441547:android:fcf493e4d00934b4367c8e",
+        "android_client_info": {
+          "package_name": "com.example.edwards_pet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048375441547-oi7k08dtgt87lqb591m8mcfflah91pnf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx_-Gf4f4k3vrTwVyD_UtmAGBOTn6FPeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048375441547-oi7k08dtgt87lqb591m8mcfflah91pnf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
