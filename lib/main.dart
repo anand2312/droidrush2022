@@ -20,18 +20,18 @@ class PetRush extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return WidgetsApp(
+    return MaterialApp(
       title: 'PetRush',
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
         '/': (context) => const AuthGate(),
         '/home': (context) => const HomeScreen(),
-        '/moredetails': (context) => const moreDetailsPage(),
+        '/moredetails': (context) => const MoreDetailsPage(),
       },
       color: PetRushColors.primaryBgDark(),
       builder: (context, child) {
-        return const AuthGate();
+        return const Scaffold(body: MoreDetailsPage());
       },
     );
   }

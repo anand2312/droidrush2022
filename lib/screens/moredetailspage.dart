@@ -1,43 +1,27 @@
-
-
 import 'package:edwards_pet/colors.dart';
 import 'package:flutter/material.dart';
 
-class moreDetailsPage extends StatefulWidget {
-  const moreDetailsPage({Key? key}) : super(key: key);
+class MoreDetailsPage extends StatelessWidget {
+  const MoreDetailsPage({Key? key}) : super(key: key);
 
-  @override
-  State<moreDetailsPage> createState() => _moreDetailsPageState();
-}
-
-class _moreDetailsPageState extends State<moreDetailsPage> {
   @override
   Widget build(BuildContext context) {
-    final appTitle = 'Enter more details';
-    return MaterialApp(
-      title: appTitle,
-      home: Scaffold(
-        backgroundColor: PetRushColors.oxfordBlue,
-        /*appBar: PreferredSize(
-          preferredSize: Size.fromHeight(100.0),
-          child: AppBar(
-          centerTitle: true,
-          backgroundColor: PetRushColors.oxfordBlue,
-          title: Text(appTitle),
-        ),
-      ),*/
-        body: MyCustomForm(),
-      ),
+    return Container(
+      decoration: const BoxDecoration(color: PetRushColors.oxfordBlue),
+      child: const MyCustomForm(),
     );
   }
-  }
+}
 
-class MyCustomForm extends StatefulWidget{
+class MyCustomForm extends StatefulWidget {
+  const MyCustomForm({super.key});
+
   @override
   MyCustomFormState createState() {
     return MyCustomFormState();
   }
 }
+
 class MyCustomFormState extends State<MyCustomForm> {
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
@@ -46,64 +30,95 @@ class MyCustomFormState extends State<MyCustomForm> {
   @override
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey created above.
-    return Container(
-      color: PetRushColors.charcoal,
-      child: Form(
-        key: _formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top:300,left:25,right:25),
-              child: TextFormField(
-                style: TextStyle(color: PetRushColors.babyPink,fontSize: 20,fontFamily:'Rubik'),
-                keyboardType: TextInputType.phone,
-                decoration: const InputDecoration(
-                  contentPadding: const EdgeInsets.all(15),
-                  isDense: true,
-                  icon: const Icon(Icons.phone,color: PetRushColors.babyPink,size: 30,),
-                  hintText: 'Enter a phone number',
-                  hintStyle: TextStyle(color: PetRushColors.babyPink),
-                  labelText: 'Phone',
-                  labelStyle: TextStyle(color: PetRushColors.babyPink),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      width: 1,
-                      color: PetRushColors.babyPink,
+    return Column(
+      children: [
+        const Padding(
+            padding: EdgeInsets.only(top: 75, bottom: 60),
+            child: Text(
+              'Enter more details',
+              style: TextStyle(
+                  color: PetRushColors.babyPink,
+                  fontSize: 40,
+                  fontFamily: 'Rubik'),
+            )),
+        Expanded(
+            child: Container(
+          decoration: const BoxDecoration(
+              color: PetRushColors.charcoal,
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(25), topLeft: Radius.circular(25))),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(top: 300, left: 25, right: 25),
+                  child: TextFormField(
+                    style: const TextStyle(
+                        color: PetRushColors.papayaWhip,
+                        fontSize: 20,
+                        fontFamily: 'Rubik'),
+                    keyboardType: TextInputType.phone,
+                    decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.all(15),
+                      isDense: true,
+                      icon: Icon(
+                        Icons.phone,
+                        color: PetRushColors.papayaWhip,
+                        size: 30,
+                      ),
+                      hintText: 'Enter a phone number',
+                      hintStyle: TextStyle(color: PetRushColors.papayaWhip),
+                      labelText: 'Phone',
+                      labelStyle: TextStyle(color: PetRushColors.papayaWhip),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          width: 1,
+                          color: PetRushColors.papayaWhip,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top:25,left:25,right:25),
-              child: TextFormField(
-                style: TextStyle(color: PetRushColors.babyPink,fontSize: 20,fontFamily: 'Rubik'),
-                decoration: const InputDecoration(
-                  icon: const Icon(Icons.location_on_sharp,color: PetRushColors.babyPink,size: 30,),
-                  hintText: 'Enter your address',
-                  hintStyle: TextStyle(color: PetRushColors.babyPink),
-                  labelText: 'Address',
-                  labelStyle: TextStyle(color: PetRushColors.babyPink),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      width: 1,
-                      color: PetRushColors.babyPink,
+                Padding(
+                  padding: const EdgeInsets.only(top: 25, left: 25, right: 25),
+                  child: TextFormField(
+                    style: const TextStyle(
+                        color: PetRushColors.papayaWhip,
+                        fontSize: 20,
+                        fontFamily: 'Rubik'),
+                    decoration: const InputDecoration(
+                      icon: Icon(
+                        Icons.location_on_sharp,
+                        color: PetRushColors.papayaWhip,
+                        size: 30,
+                      ),
+                      hintText: 'Enter your address',
+                      hintStyle: TextStyle(color: PetRushColors.papayaWhip),
+                      labelText: 'Address',
+                      labelStyle: TextStyle(color: PetRushColors.papayaWhip),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          width: 1,
+                          color: PetRushColors.papayaWhip,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
+                Container(
+                    padding:
+                        const EdgeInsets.only(top: 100, right: 150, left: 150),
+                    child: const ElevatedButton(
+                      onPressed: null,
+                      child: Text('Submit'),
+                    )),
+              ],
             ),
-            new Container(
-                padding: const EdgeInsets.only(top: 100, right:150, left:150),
-                child: new ElevatedButton(
-                  child: const Text('Submit'),
-                  onPressed: null,
-                )),
-          ],
-        ),
-      ),
+          ),
+        ))
+      ],
     );
-
   }
 }
