@@ -85,6 +85,15 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
+  Text _getCarouselFormattedText(String text) {
+    return Text(
+      text,
+      textAlign: TextAlign.center,
+      style: const TextStyle(
+          color: PetRushColors.papayaWhip, fontSize: 20, fontFamily: 'Rubik'),
+    );
+  }
+
   // Contains the actual buttons for the login/sign-up functionality.
   @override
   Widget build(BuildContext context) {
@@ -102,23 +111,30 @@ class LoginScreen extends StatelessWidget {
                     width: 250,
                   )),
               Padding(
-                  padding: const EdgeInsets.only(bottom: 0),
+                  padding: const EdgeInsets.only(bottom: 60),
                   child: Text(
                     'PetRush',
+                    textWidthBasis: TextWidthBasis.parent,
                     style: TextStyle(
                         fontFamily: 'Rubik',
-                        fontSize: 30,
+                        fontSize: 40,
                         fontWeight: FontWeight.bold,
                         color: PetRushColors.primaryTextLight()),
                   )),
-              CarouselSlider(items: const <Widget>[
-                Center(
-                  child: Text('Welcome to PetRush!'),
-                ),
-                Center(child: Text('We will help you find your ideal pet')),
-                Center(
-                    child: Text('Connect with animal shelters and volunteers'))
-              ], options: CarouselOptions(height: 200, aspectRatio: 16 / 9))
+              CarouselSlider(
+                  items: <Widget>[
+                    _getCarouselFormattedText('Welcome to PetRush!'),
+                    _getCarouselFormattedText(
+                        'We will help you find your ideal pet'),
+                    _getCarouselFormattedText(
+                        'Connect with animal shelters and volunteers')
+                  ],
+                  options: CarouselOptions(
+                      height: 150,
+                      aspectRatio: 4 / 3,
+                      autoPlay: true,
+                      viewportFraction: 1,
+                      autoPlayInterval: const Duration(seconds: 3)))
             ],
           ),
           Expanded(
