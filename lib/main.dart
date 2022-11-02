@@ -1,6 +1,7 @@
 import 'package:edwards_pet/colors.dart';
 import 'package:edwards_pet/screens/home.dart';
 import 'package:edwards_pet/screens/login.dart';
+import 'package:edwards_pet/screens/moredetailspage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -26,6 +27,7 @@ class PetRush extends StatelessWidget {
       routes: {
         '/': (context) => const AuthGate(),
         '/home': (context) => const HomeScreen(),
+        '/moredetails': (context) => const moreDetailsPage(),
       },
       color: PetRushColors.primaryBgDark(),
       builder: (context, child) {
