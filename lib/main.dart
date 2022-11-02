@@ -11,7 +11,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(moreDetailsPage());
+  runApp(const PetRush());
 }
 
 class PetRush extends StatelessWidget {
