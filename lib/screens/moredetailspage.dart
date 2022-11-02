@@ -1,5 +1,6 @@
 import 'package:edwards_pet/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:edwards_pet/db_functions.dart';
 
 class MoreDetailsPage extends StatelessWidget {
   const MoreDetailsPage({Key? key}) : super(key: key);
@@ -26,6 +27,11 @@ class MyCustomFormState extends State<MyCustomForm> {
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
   final _formKey = GlobalKey<FormState>();
+  final _phonecontroller = TextEditingController();
+  final _streetnamecontroller = TextEditingController();
+  final _citycontroller = TextEditingController();
+  final _pincodecontroller = TextEditingController();
+  final _statecontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -56,8 +62,9 @@ class MyCustomFormState extends State<MyCustomForm> {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.only(
-                              top: 300, left: 25, right: 25),
+                              top: 100, left: 25, right: 25),
                           child: TextFormField(
+                            controller: _phonecontroller,
                             style: const TextStyle(
                                 color: PetRushColors.papayaWhip,
                                 fontSize: 20,
@@ -88,8 +95,9 @@ class MyCustomFormState extends State<MyCustomForm> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
-                              top: 25, left: 25, right: 25),
+                              top: 50, left: 25, right: 25),
                           child: TextFormField(
+                            controller: _streetnamecontroller,
                             style: const TextStyle(
                                 color: PetRushColors.papayaWhip,
                                 fontSize: 20,
@@ -100,10 +108,101 @@ class MyCustomFormState extends State<MyCustomForm> {
                                 color: PetRushColors.papayaWhip,
                                 size: 30,
                               ),
-                              hintText: 'Enter your address',
+                              hintText: 'Enter your Street Name',
                               hintStyle:
                                   TextStyle(color: PetRushColors.papayaWhip),
-                              labelText: 'Address',
+                              labelText: 'Street Name',
+                              labelStyle:
+                                  TextStyle(color: PetRushColors.papayaWhip),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1,
+                                  color: PetRushColors.papayaWhip,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 50, left: 25, right: 25),
+                          child: TextFormField(
+                            controller: _citycontroller,
+                            style: const TextStyle(
+                                color: PetRushColors.papayaWhip,
+                                fontSize: 20,
+                                fontFamily: 'Rubik'),
+                            decoration: const InputDecoration(
+                              icon: Icon(
+                                Icons.location_on_sharp,
+                                color: PetRushColors.charcoal,
+                                size: 30,
+                              ),
+                              hintText: 'Enter your City',
+                              hintStyle:
+                                  TextStyle(color: PetRushColors.papayaWhip),
+                              labelText: 'City',
+                              labelStyle:
+                                  TextStyle(color: PetRushColors.papayaWhip),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1,
+                                  color: PetRushColors.papayaWhip,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 50, left: 25, right: 25),
+                          child: TextFormField(
+                            controller: _pincodecontroller,
+                            style: const TextStyle(
+                                color: PetRushColors.papayaWhip,
+                                fontSize: 20,
+                                fontFamily: 'Rubik'),
+                            keyboardType: TextInputType.phone,
+                            decoration: const InputDecoration(
+                              icon: Icon(
+                                Icons.location_on_sharp,
+                                color: PetRushColors.charcoal,
+                                size: 30,
+                              ),
+                              hintText: 'Enter your Pincode',
+                              hintStyle:
+                                  TextStyle(color: PetRushColors.papayaWhip),
+                              labelText: 'Pincode',
+                              labelStyle:
+                                  TextStyle(color: PetRushColors.papayaWhip),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1,
+                                  color: PetRushColors.papayaWhip,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 50, left: 25, right: 25),
+                          child: TextFormField(
+                            controller: _statecontroller,
+                            style: const TextStyle(
+                                color: PetRushColors.papayaWhip,
+                                fontSize: 20,
+                                fontFamily: 'Rubik'),
+                            decoration: const InputDecoration(
+                              icon: Icon(
+                                Icons.location_on_sharp,
+                                color: PetRushColors.charcoal,
+                                size: 30,
+                              ),
+                              hintText: 'Enter your State',
+                              hintStyle:
+                                  TextStyle(color: PetRushColors.papayaWhip),
+                              labelText: 'State',
                               labelStyle:
                                   TextStyle(color: PetRushColors.papayaWhip),
                               enabledBorder: OutlineInputBorder(
@@ -117,10 +216,46 @@ class MyCustomFormState extends State<MyCustomForm> {
                         ),
                         Container(
                             padding: const EdgeInsets.only(
-                                top: 100, right: 150, left: 150),
-                            child: const ElevatedButton(
-                              onPressed: null,
-                              child: Text('Submit'),
+                                top: 50, right: 10, left: 10),
+                            child: Center(
+                              child: ElevatedButton(
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          PetRushColors.salmonPink),
+                                  shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                  ),
+                                ),
+                                /*onPressed: addUserDetails(
+                                  $_phonecontroller,
+                                  $_streetnamecontroller,
+                                  $_citycontroller,
+                                  $_pincodecontroller,
+                                  $_statecontroller,
+                                ),*/
+                                onPressed: () async {
+                                  await addUserDetails(
+                                      _phonecontroller.text,
+                                      _streetnamecontroller.text,
+                                      _citycontroller.text,
+                                      _pincodecontroller.text,
+                                      _statecontroller.text);
+                                  if (!mounted) return;
+                                  Navigator.pushNamed(context, '/home');
+                                },
+                                child: const Text(
+                                  'SUBMIT',
+                                  style: TextStyle(
+                                    color: PetRushColors.oxfordBlue,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 30,
+                                  ),
+                                ),
+                              ),
                             )),
                       ],
                     ),

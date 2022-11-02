@@ -31,7 +31,7 @@ class PetRush extends StatelessWidget {
       },
       color: PetRushColors.primaryBgDark(),
       builder: (context, child) {
-        return const Scaffold(body: MoreDetailsPage());
+        return const Scaffold(body: AuthGate());
       },
     );
   }
