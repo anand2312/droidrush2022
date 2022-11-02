@@ -46,61 +46,64 @@ class MyCustomFormState extends State<MyCustomForm> {
   @override
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey created above.
-    return Container(
-      color: PetRushColors.charcoal,
-      child: Form(
-        key: _formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top:300,left:25,right:25),
-              child: TextFormField(
-                style: TextStyle(color: PetRushColors.babyPink,fontSize: 20,fontFamily:'Rubik'),
-                keyboardType: TextInputType.phone,
-                decoration: const InputDecoration(
-                  contentPadding: const EdgeInsets.all(15),
-                  isDense: true,
-                  icon: const Icon(Icons.phone,color: PetRushColors.babyPink,size: 30,),
-                  hintText: 'Enter a phone number',
-                  hintStyle: TextStyle(color: PetRushColors.babyPink),
-                  labelText: 'Phone',
-                  labelStyle: TextStyle(color: PetRushColors.babyPink),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      width: 1,
-                      color: PetRushColors.babyPink,
+    return Center(
+      child: Container(
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(top:300,left:25,right:25),
+                  child: TextFormField(
+                    style: TextStyle(color: PetRushColors.babyPink,fontSize: 20,fontFamily:'Rubik'),
+                    keyboardType: TextInputType.phone,
+                    decoration: const InputDecoration(
+                      contentPadding: const EdgeInsets.all(15),
+                      isDense: true,
+                      icon: const Icon(Icons.phone,color: PetRushColors.babyPink,size: 30,),
+                      hintText: 'Enter a phone number',
+                      hintStyle: TextStyle(color: PetRushColors.babyPink),
+                      labelText: 'Phone',
+                      labelStyle: TextStyle(color: PetRushColors.babyPink),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          width: 1,
+                          color: PetRushColors.babyPink,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top:25,left:25,right:25),
-              child: TextFormField(
-                style: TextStyle(color: PetRushColors.babyPink,fontSize: 20,fontFamily: 'Rubik'),
-                decoration: const InputDecoration(
-                  icon: const Icon(Icons.location_on_sharp,color: PetRushColors.babyPink,size: 30,),
-                  hintText: 'Enter your address',
-                  hintStyle: TextStyle(color: PetRushColors.babyPink),
-                  labelText: 'Address',
-                  labelStyle: TextStyle(color: PetRushColors.babyPink),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      width: 1,
-                      color: PetRushColors.babyPink,
+                Padding(
+                  padding: const EdgeInsets.only(top:25,left:25,right:25),
+                  child: TextFormField(
+                    style: TextStyle(color: PetRushColors.babyPink,fontSize: 20,fontFamily: 'Rubik'),
+                    decoration: const InputDecoration(
+                      icon: const Icon(Icons.location_on_sharp,color: PetRushColors.babyPink,size: 30,),
+                      hintText: 'Enter your address',
+                      hintStyle: TextStyle(color: PetRushColors.babyPink),
+                      labelText: 'Address',
+                      labelStyle: TextStyle(color: PetRushColors.babyPink),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          width: 1,
+                          color: PetRushColors.babyPink,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
+                new Container(
+                    padding: const EdgeInsets.only(top: 100, right:150, left:150),
+                    child: new ElevatedButton(
+                      child: const Text('Submit'),
+                      onPressed: null,
+                    )),
+              ],
             ),
-            new Container(
-                padding: const EdgeInsets.only(top: 100, right:150, left:150),
-                child: new ElevatedButton(
-                  child: const Text('Submit'),
-                  onPressed: null,
-                )),
-          ],
+          ),
         ),
       ),
     );
