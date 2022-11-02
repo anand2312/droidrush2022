@@ -57,10 +57,10 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                   });
                   if (userCred.user != null) {
                     if (!mounted) return; // async buildcontext gap warning
-                    //if (isFirstLogin(userCred.user!)) {
-                     // Navigator.pushNamed(context, '/moredetails');
-                      //return;
-                    //}
+                    if (isFirstLogin(userCred.user!)) {
+                      Navigator.pushNamed(context, '/moredetails');
+                      return;
+                    }
                     Navigator.pushNamed(context, '/home');
                   } else {
                     print(
@@ -177,7 +177,11 @@ class AuthGate extends StatelessWidget {
             return const LoginScreen();
           } else {
             // user is logged in
-            return const MoreDetailsPage();
+            if (isFirstLogin(snapshot.data!)) {
+              return const MoreDetailsPage();
+            } else {
+              return const HomeScreen();
+            }
           }
         });
   }
