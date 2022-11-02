@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:edwards_pet/colors.dart';
 import 'package:edwards_pet/screens/home.dart';
+import 'package:edwards_pet/screens/moredetailspage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -56,10 +57,10 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                   });
                   if (userCred.user != null) {
                     if (!mounted) return; // async buildcontext gap warning
-                    if (isFirstLogin(userCred.user!)) {
-                      Navigator.pushNamed(context, '/moredetails');
-                      return;
-                    }
+                    //if (isFirstLogin(userCred.user!)) {
+                     // Navigator.pushNamed(context, '/moredetails');
+                      //return;
+                    //}
                     Navigator.pushNamed(context, '/home');
                   } else {
                     print(
@@ -176,7 +177,7 @@ class AuthGate extends StatelessWidget {
             return const LoginScreen();
           } else {
             // user is logged in
-            return const HomeScreen();
+            return const MoreDetailsPage();
           }
         });
   }
