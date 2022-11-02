@@ -17,6 +17,10 @@ Future<UserCredential> signInWithGoogle() async {
   return await FirebaseAuth.instance.signInWithCredential(credential);
 }
 
+bool isFirstLogin(User user) {
+  return user.metadata.creationTime == user.metadata.lastSignInTime;
+}
+
 class GoogleSignInButton extends StatefulWidget {
   const GoogleSignInButton({super.key});
 
@@ -52,6 +56,10 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                   });
                   if (userCred.user != null) {
                     if (!mounted) return; // async buildcontext gap warning
+                    if (isFirstLogin(userCred.user!)) {
+                      Navigator.pushNamed(context, '/moredetails');
+                      return;
+                    }
                     Navigator.pushNamed(context, '/home');
                   } else {
                     print(
