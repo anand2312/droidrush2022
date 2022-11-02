@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 Future<UserCredential> signInWithGoogle() async {
+  // Sign a user into the app using Gmail.
   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
   final GoogleSignInAuthentication? googleAuth =
       await googleUser?.authentication;
@@ -24,7 +25,7 @@ class GoogleSignInButton extends StatefulWidget {
 }
 
 class _GoogleSignInButtonState extends State<GoogleSignInButton> {
-  bool _signingIn = false;
+  bool _signingIn = false; // used to show a loading animation
 
   @override
   Widget build(BuildContext context) {
